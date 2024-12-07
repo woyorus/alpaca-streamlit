@@ -2,9 +2,9 @@ import streamlit as st
 import requests
 
 # No problem this being public.
-QUEPASA_TOKEN = "saas_alpaca:Lm6XHCctWwM0PjNzGj4X9GiM13sj5tvXFnZXo0PgNs9iCx9uCvq6bAAaIJyqw2i+"
+QUEPASA_TOKEN = "saas_alpaca_2:gmlqz7WiB4fDIwqt5MQ7PyD7gp4MEabcMcpMhBsPH9GGDtui7Wj4hshm54EDIqv4"
 
-st.title("Alpaca Netowork AI Agent Search Bot")
+st.title("Alpaca Network AI Agent Search Bot")
 
 intro_msg = 'Hi! I am an Alpaca Netowork assistant that finds you an AI agent to perform a task you want. Please describe what you want to do.'
 
@@ -16,7 +16,7 @@ Use ONLY the information from the sources below!
 When answering the question, use the following rules:
 - always answer in {{LANGUAGE}} language;
 - output ONLY the list of agents with their brief description in a numbered list. Do not add anything except the list of agents, therefore your output MUST begin with '1.'
-- if there is no information on the question in the sources: say that you can't find the answer and ask the user to try to reformulate the question.
+- if there is no information on the question in the sources: say that you can't find a matching AI assistant, and say that you hope a one appears in the future!
 
 Here's the ranked list of agents or tools that fit the job:
 
@@ -28,15 +28,15 @@ def get_quepasa_response(q):
         "domain": "default",
         "llm": "anthropic:claude-3-5-sonnet-20240620",
         "prompt": quepasa_prompt,
-        "answer_prompt_size": 900,
-        "prompt_total_size": 8110,
+        # "answer_prompt_size": 900,
+        # "prompt_total_size": 8110,
         "document_relevance_weights": {
-            "text": 0.5,
-            "semantic": 0.5
+            "text": 0.2,
+            "semantic": 0.8
         },
         "chunk_relevance_weights": {
-            "text": 0.5,
-            "semantic": 0.5
+            "text": 0.2,
+            "semantic": 0.8
         },
     }
 
